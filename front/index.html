@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <script defer src="./renderer.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="mainUi">
+        <div id="buttonContainer">
+            <button id="startSim" class="mdc-button mdc-button--raised barButtons">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__touch"></span>
+                <span class="mdc-button__label" id="startButtonText">Start</span>
+            </button>
+            <button id="setupSim" class="mdc-button mdc-button--raised barButtons">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__touch"></span>
+                <span class="mdc-button__label">Setup</span>
+            </button>
+            <label class="mdc-text-field mdc-text-field--filled barInNum">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Grid size (px)</span>
+                <input value="32" maxlength="4" id="gridSize" class="mdc-text-field__input " type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple "></span>
+            </label>
+            <div class="sideInput">
+                <label class="mdc-text-field mdc-text-field--filled barInNum">
+                    <span class="mdc-text-field__ripple"></span>
+                    <span class="mdc-floating-label">Blocks</span>
+                    <input value="1" maxlength="3" id="blocks" class="mdc-text-field__input " type="text"
+                    aria-labelledby="my-label-id">
+                    <span class="mdc-line-ripple "></span>
+                </label>
+                <label class="mdc-text-field mdc-text-field--filled barInNum">
+                    <span class="mdc-text-field__ripple"></span>
+                    <span class="mdc-floating-label">Threads</span>
+                    <input value="1" maxlength="3" id="threads" class="mdc-text-field__input " type="text"
+                    aria-labelledby="my-label-id">
+                    <span class="mdc-line-ripple "></span>
+                </label>
+            </div>
+            <div class="sideInput">
+                <label class="mdc-text-field mdc-text-field--filled barInNum">
+                    <span class="mdc-text-field__ripple"></span>
+                    <span class="mdc-floating-label">Diff. rate</span>
+                    <input value="0.005" maxlength="6" id="diffRate" class="mdc-text-field__input " type="text"
+                    aria-labelledby="my-label-id">
+                    <span class="mdc-line-ripple "></span>
+                </label>
+                <label class="mdc-text-field mdc-text-field--filled barInNum">
+                    <span class="mdc-text-field__ripple"></span>
+                    <span class="mdc-floating-label">Speed</span>
+                    <input value="0.001" maxlength="6" id="speed" class="mdc-text-field__input " type="text"
+                    aria-labelledby="my-label-id">
+                    <span class="mdc-line-ripple "></span>
+                </label>
+            </div>
+            <div class="mdc-data-table">
+                <div class="mdc-data-table__table-container">
+                    <table class="mdc-data-table__table" aria-label="Performance stats">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell " role="columnheader" scope="col">Performance</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                            <tr class="mdc-data-table__row">
+                                <th class="mdc-data-table__cell" scope="row">Frames (Total)</th>
+                                <td id="framesT" class="mdc-data-table__cell mdc-data-table__cell--numeric">--</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <th class="mdc-data-table__cell" scope="row">Diffusion (Avg.)</th>
+                                <td id="difT" class="mdc-data-table__cell mdc-data-table__cell--numeric">-- ms</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <th class="mdc-data-table__cell" scope="row">Velocity (Avg.)</th>
+                                <td id="velT" class="mdc-data-table__cell mdc-data-table__cell--numeric">-- ms</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <th class="mdc-data-table__cell" scope="row">Render (Ui)</th>
+                                <td id="renderT" class="mdc-data-table__cell mdc-data-table__cell--numeric">3.6 ms</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="simGrid">
+            <div class="gridTile">1</div>
+            <div class="gridTile">2</div>
+            <div class="gridTile">3</div>
+            <div class="gridTile">4</div>
+            <div class="gridTile">5</div>
+            <div class="gridTile">6</div>
+            <div class="gridTile">7</div>
+        </div>
+    </div>
+</body>
+
+</html>

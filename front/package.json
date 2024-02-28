@@ -1,0 +1,62 @@
+{
+  "name": "fluid_sim_electron_ui",
+  "version": "1.0.0",
+  "description": "Ui for fluid sim ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron . --enable-logging",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "build": "electron-packager . .\\fluidsim --platform=win32 --arch=x64 --overwrite",
+    "rebuild": ".\\node_modules\\.bin\\electron-rebuild.cmd -v 18.0.4 -w share-memory-win"
+  },
+  "author": "michaelJ",
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "^18.0.4",
+    "electron-packager": "^15.4.0",
+    "electron-prebuilt": "^1.4.13",
+    "electron-rebuild": "^3.2.7",
+    "electron-reloader": "^1.2.3"
+  },
+  "dependencies": {
+    "@material/button": "^13.0.0",
+    "@material/data-table": "^13.0.0",
+    "@material/textfield": "^13.0.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "share-memory-win": "^1.2.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "fluid_sim_electron_ui"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
